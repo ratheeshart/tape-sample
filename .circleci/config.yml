@@ -52,10 +52,9 @@ workflows:
   build_and_checkout_code_and_tape_and_tape1:
     jobs:
       - build
-      - checkout_code
       - tape:
           requires:
-            - checkout_code
+            - build
       - tape1:
           requires:
             - tape

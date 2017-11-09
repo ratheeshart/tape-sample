@@ -1,7 +1,7 @@
 version: 2
 jobs:
-  working_directory: /
   build:
+    working_directory: ~/tape-sample
     docker:
       - image: circleci/node:4.8.2
     steps:

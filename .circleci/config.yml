@@ -1,9 +1,10 @@
 version: 2
 jobs:
-  build:
+  checkout_code:
     working_directory: ~/tape-sample
     docker:
       - image: circleci/node:4.8.2
+      
     steps:
       - run:
           name: ls
@@ -24,3 +25,22 @@ jobs:
       - run:
           name: test
           command: npm test
+  tape:
+    - run:
+          name: tape
+          command: 'npm start'
+  tape1:
+    - run:
+          name: test
+          command: 'npm test'
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - checkout_code
+      - tape:
+          requires:
+            - checkout_code
+      - tape1:
+          requires:
+            - tape

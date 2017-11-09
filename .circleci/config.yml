@@ -26,10 +26,12 @@ jobs:
           name: test
           command: npm test
   tape:
+    working_directory: ~/tape-sample
     - run:
           name: tape
           command: 'npm start'
   tape1:
+    working_directory: ~/tape-sample
     - run:
           name: test
           command: 'npm test'

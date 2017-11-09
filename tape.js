@@ -5,13 +5,19 @@ var httpMock = require("node-mocks-http");
 try{
 	
 test("parse request with digest auth", function (t) {
+	
+try{
 		t.plan(4);
 
 			t.false(0, "err should be falsy");
 			t.equal(0,0, "equal");
-	t.ok('success');
-	t.skip('not processed')
+	t.ok('worked.');
+	t.skip('not processed');
 
+}
+catch(v){
+ console.log(v);
+}
 });
 }
 catch(v){

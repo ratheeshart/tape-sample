@@ -1,9 +1,9 @@
 {
-  "name": "vendor",
+  "name": "tap-sample",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node tape.js",
+    "start": "node ./tape.js",
     "test": "node tape.js | tap-spec"
   },
   "dependencies": {

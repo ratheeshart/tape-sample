@@ -9,7 +9,10 @@ jobs:
       - run:
           name: node v
           command: node -v
-  checkout_code:
+  tape:
+    docker:
+      - image: circleci/node:4.8.2
+      
     working_directory: ~/tape-sample
     steps:
       - checkout
@@ -25,24 +28,22 @@ jobs:
       - run:
           name: tape
           command: 'npm start'
-      - run:
-          name: test
-          command: npm test
-  tape:
-    docker:
-      - image: circleci/node:4.8.2
-      
-    working_directory: ~/tape-sample
-    steps:
-      - run:
-          name: tape
-          command: 'npm start'
   tape1:
     docker:
       - image: circleci/node:4.8.2
       
     working_directory: ~/tape-sample
     steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm-wee
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
       - run:
           name: test
           command: 'npm test'

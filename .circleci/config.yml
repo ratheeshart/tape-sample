@@ -39,7 +39,7 @@ jobs:
           command: 'npm test'
 workflows:
   version: 2
-  build-and-deploy:
+  build-and-checkout_code-and-tape-and-tape1:
     jobs:
       - checkout_code
       - tape:

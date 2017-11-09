@@ -1,10 +1,12 @@
 version: 2
 jobs:
-  checkout_code:
+  build:
     working_directory: ~/tape-sample
     docker:
       - image: circleci/node:4.8.2
       
+  checkout_code:
+    working_directory: ~/tape-sample
     steps:
       - run:
           name: ls

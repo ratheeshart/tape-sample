@@ -5,12 +5,13 @@ jobs:
     docker:
       - image: circleci/node:4.8.2
       
+    steps:
+      - run:
+          name: node v
+          command: node -v
   checkout_code:
     working_directory: ~/tape-sample
     steps:
-      - run:
-          name: ls
-          command: ls & pwd
       - checkout
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}

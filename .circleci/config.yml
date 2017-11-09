@@ -29,12 +29,18 @@ jobs:
           name: test
           command: npm test
   tape:
+    docker:
+      - image: circleci/node:4.8.2
+      
     working_directory: ~/tape-sample
     steps:
       - run:
           name: tape
           command: 'npm start'
   tape1:
+    docker:
+      - image: circleci/node:4.8.2
+      
     working_directory: ~/tape-sample
     steps:
       - run:

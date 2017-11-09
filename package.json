@@ -1,0 +1,15 @@
+{
+  "name": "vendor",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node tape.js",
+    "test": "node tape.js | tap-spec"
+  },
+  "dependencies": {
+    "mockgoose": "~4.0.1",
+    "node-mocks-http": "~1.4.3",
+    "tap-spec": "4.1.1",
+    "tape": "~4.2.0"
+  }
+}
